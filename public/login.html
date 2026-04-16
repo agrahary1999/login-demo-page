@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding and viewport settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Page metadata -->
+  <meta name="description" content="Login to access your account. Secure authentication portal.">
+  <meta name="author" content="Automation Platform">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Page title -->
+  <title>Login - Automation Platform</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/login.css">
+  
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#667eea">
+</head>
+<body>
+  <!-- Main login container -->
+  <div class="login-container">
+    <!-- Header section with title and subtitle -->
+    <header class="login-header">
+      <h1>Welcome Back</h1>
+      <p>Please login to your account</p>
+    </header>
+    
+    <!-- 
+      Login form
+      - action: Points to the existing JWT authentication endpoint
+      - method: POST for secure credential transmission
+      - Note: Backend expects JSON, but this HTML form sends x-www-form-urlencoded
+      - Future enhancement: Add JavaScript to intercept submission and send JSON
+      - Alternative: Add express.urlencoded() middleware to backend
+    -->
+    <form class="login-form" action="/api/auth/login" method="POST" novalidate>
+      <!-- Username/Email input field -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email" 
+          autocomplete="email" 
+          required 
+          aria-required="true"
+          aria-label="Email address input field"
+          maxlength="255"
+        >
+      </div>
+      
+      <!-- Password input field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Enter your password" 
+          autocomplete="current-password" 
+          required 
+          aria-required="true"
+          aria-label="Password input field"
+          maxlength="255"
+        >
+      </div>
+      
+      <!-- Submit button -->
+      <button type="submit" class="login-button" aria-label="Submit login form">
+        Login
+      </button>
+    </form>
+    
+    <!-- Footer with additional links -->
+    <footer class="login-footer">
+      <p>
+        <a href="/forgot-password" aria-label="Navigate to forgot password page">Forgot Password?</a>
+      </p>
+      <p style="margin-top: 0.75rem;">
+        Don't have an account? 
+        <a href="/signup" aria-label="Navigate to sign up page">Sign Up</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
